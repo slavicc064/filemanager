@@ -1,0 +1,114 @@
+body {
+    background-color: #f1f1f1;
+}
+p, ul, menu, dir {
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+}
+ul, menu, dir {
+    display: block;
+    list-style-type: none;
+    -webkit-padding-start: 0;
+}
+a {
+    text-decoration: none;
+}
+.fm-window {
+    width: 1200px;
+    height: 500px;
+    background-color: #afbbce;
+    border: 1px solid #aaaaaa;
+    border-radius: 5px;
+}
+.fm-window {
+    overflow: hidden;
+}
+.fm-top{
+    background: #e4e4e4;
+    background: -moz-linear-gradient(top, #e4e4e4 0%, #e2e2e2 18%, #cdcdcd 74%, #cdcdcd 100%);
+    background: -webkit-linear-gradient(top, #e4e4e4 0%,#e2e2e2 18%,#cdcdcd 74%,#cdcdcd 100%);
+    background: linear-gradient(to bottom, #e4e4e4 0%,#e2e2e2 18%,#cdcdcd 74%,#cdcdcd 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4e4e4', endColorstr='#cdcdcd',GradientType=0 );
+    height: 25px;
+    padding: 5px 4px;
+    border-bottom: 1px solid #aaaaaa;
+}
+.close {
+    width: 15px;
+    float: right;
+    margin-top: -17px;
+    margin-right: 10px;
+}
+.close img {
+    width: 100%;
+}
+.title {
+    text-align: center;
+    margin-top: 4px;
+    color: #444444;
+    font-weight: bold;
+}
+.fm-box {
+    height: 441px;
+}
+.fm-box-left {
+    width: 300px;
+    background-color: #dde4eb;
+    padding: 3px 5px;
+    height: 435px;
+}
+.fm-box-left,
+.fm-box-right {
+    float: left;
+}
+.fm-box-left,
+.fm-box-right {
+    overflow: scroll;
+}
+.fm-box-right {
+    width: 890px;
+    background-color: #ffffff;
+    height: 441px;
+}
+.fm-bottom {
+    height: 24px;
+    background: #e2e2e2;
+    background: -moz-linear-gradient(top, #e2e2e2 0%, #cdcdcd 83%, #cdcdcd 100%);
+    background: -webkit-linear-gradient(top, #e2e2e2 0%,#cdcdcd 83%,#cdcdcd 100%);
+    background: linear-gradient(to bottom, #e2e2e2 0%,#cdcdcd 83%,#cdcdcd 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#cdcdcd',GradientType=0 );
+    border-top: 1px solid #aaaaaa;
+}
+.ul-hidden {
+    display: none;
+}
+.dropdown-menu {
+    display: none;
+}
+.focus,
+.folder ,
+.file {
+    padding-left: 20px;
+    position: relative;
+}
+.click-folder,
+.file a {
+    display: block;
+    padding: 5px;
+}
+.click-folder img {
+    width: 25px;
+    float: left;
+}
+.click-folder span {
+    display: block;
+    margin-top: 6px;
+    margin-left: 30px;
+}
+/*
+.click-folder:focus,
+.file a:focus {
+    background-color: blue;
+    border-radius: 4px;
+    color: white;
+}*/
