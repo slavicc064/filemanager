@@ -26,7 +26,7 @@ $scandir = dirToArray($dir);
             <div class="fm-box-left">
                 <ul class="dropdown">
                     <li class="focus">
-                        <a class="click-folder" href="#" tabindex="-1"><img src="icon/file-man.ico" alt="Manager icon"><span>filemanager</span></a>
+                        <a class="click-folder" href="#" tabindex="-1"><img src="icon/user-home.svg" alt="Manager icon"><span>filemanager</span></a>
                         <ul class="dropdown-menu"><?php echoDir($scandir);?></ul>
                     </li>
                 </ul>
