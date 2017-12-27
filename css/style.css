@@ -13,6 +13,9 @@ ul, menu, dir {
 a {
     text-decoration: none;
 }
+:focus {
+    outline: -webkit-focus-ring-color auto 0px;
+}
 .fm-window {
     width: 1200px;
     height: 500px;
@@ -57,6 +60,9 @@ a {
     padding: 3px 5px;
     height: 435px;
 }
+/*.fm-box-left a {
+    color: #555555;
+}*/
 .fm-box-left,
 .fm-box-right {
     float: left;
@@ -66,9 +72,10 @@ a {
     overflow: scroll;
 }
 .fm-box-right {
-    width: 890px;
+    width: 886px;
     background-color: #ffffff;
-    height: 441px;
+    height: 437px;
+    padding: 2px;
 }
 .fm-bottom {
     height: 24px;
@@ -82,35 +89,68 @@ a {
 .ul-hidden {
     display: none;
 }
-.dropdown-menu {
+.dropdown-none {
     display: none;
 }
-.focus,
-.folder ,
+.dropdown-block {
+    display: block;
+}
+.folder,
 .file {
-    padding-left: 20px;
+    padding-left: 27px;
     position: relative;
 }
 .click-folder,
-.file a {
+.div-folder {
     display: block;
     padding: 5px;
+    position: relative;
 }
-.click-folder img,
-.file a img {
-    width: 25px;
+.click-folder {
+    color: #555555;
+}
+.icon {
+    width: 16px;
+    height: 14px;
     float: left;
+    margin-left: 11px;
 }
-.click-folder span,
-.file a span {
+.text {
     display: block;
-    margin-top: 6px;
+    margin-top: -1px;
     margin-left: 30px;
 }
-/*
-.click-folder:focus,
-.file a:focus {
-    background-color: blue;
+.caret,
+.caret-right {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    position: absolute;
+    top: 8px;
+    left: 4px;
+    border-left: 4px dashed;
+    border-left: 4px solid\9;
+    border-bottom: 4px solid transparent;
+    border-top: 4px solid transparent;
+    -webkit-transition: all 0.4s, color 0s ease;
+    -moz-transition: all 0.4s, color 0s ease;
+    -ms-transition: all 0.4s, color 0s ease;
+    -o-transition: all 0.4s, color 0s ease;
+    transition: all 0.4s, color 0s ease;
+}
+.caret-right {
+    transform: rotate(90deg);
+}
+.div-folder:nth-child(odd) {
+    background-color: #edf3fe;
+}
+.active-folder {
+    background-color: #3875d7;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
     border-radius: 4px;
     color: white;
-}*/
+}
+
