@@ -22,19 +22,32 @@
             <div class="fm-box-left">
                 <ul class="dropdown">
                     <li class="focus">
-                        <a class="click-folder" href="#" tabindex="-1"><img src="icon/user-home.svg" alt="Manager icon" class="icon"><span class="text">filemanager<span class="caret" data-caret='1'></span></span></a>
-                        <ul class="dropdown-none"><?php echoDir(dirlist("./"));?></ul>
+                        <a class="click-folder filemanager active-folder" href="#" name="filemanager" tabindex="-1"><img src="icon/user-home.svg" alt="Manager icon" class="icon"><span class="text">filemanager<span class="caret-right" data-caret='1'></span></span></a>
+                        <ul class="dropdown-block"><?php echoDir(dirlist("./"));?></ul>
                     </li>
                 </ul>
             </div>
             <div class="fm-box-right">
-                <?php echoFiles(dirlist("./", "files"));?>
+                <?php
+
+                //echoFiles(dirlist("./", "files"));
+                tableDir(dirlist("./", "files"));
+                //tableDir(dirToArray("./"));
+                //echoDir2(dirToArray("./"));
+                ?>
             </div>
         </div>
         <div class="fm-bottom">
 
         </div>
     </div>
+
+    <ul class="">
+        <li class="focus">
+            <a class="click-folder" href="#" name="test" tabindex="-1"><img src="icon/user-home.svg" alt="Manager icon" class="icon"><span class="text">filemanager<span class="caret" data-caret='1'></span></span></a>
+            <ul class="dropdown-none"><?php echoDir(dirlist("./"));?></ul>
+        </li>
+    </ul>
 
 </body>
 </html>

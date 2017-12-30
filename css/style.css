@@ -86,10 +86,8 @@ a {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#cdcdcd',GradientType=0 );
     border-top: 1px solid #aaaaaa;
 }
-.ul-hidden {
-    display: none;
-}
-.dropdown-none {
+.dropdown-none,
+.none {
     display: none;
 }
 .dropdown-block {
