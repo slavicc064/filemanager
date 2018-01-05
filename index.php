@@ -30,10 +30,8 @@
             <div class="fm-box-right">
                 <?php
 
-                //echoFiles(dirlist("./", "files"));
-                tableDir(dirlist("./", "files"));
-                //tableDir(dirToArray("./"));
-                //echoDir2(dirToArray("./"));
+                tableDir(dirlist("./", "files"), "filemanager");
+
                 ?>
             </div>
         </div>
@@ -42,12 +40,10 @@
         </div>
     </div>
 
-    <ul class="">
-        <li class="focus">
-            <a class="click-folder" href="#" name="test" tabindex="-1"><img src="icon/user-home.svg" alt="Manager icon" class="icon"><span class="text">filemanager<span class="caret" data-caret='1'></span></span></a>
-            <ul class="dropdown-none"><?php echoDir(dirlist("./"));?></ul>
-        </li>
-    </ul>
 
+<div class="test"></div>
+    <script>
+            //$(this).next('ul').toggleClass("dropdown-none");
+    </script>
 </body>
 </html>

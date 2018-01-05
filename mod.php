@@ -40,7 +40,7 @@ function echoDir($dir) {
             }
             else {
                 echo "<li class=\"folder\">".
-                         "<a class=\"click-folder\" tabindex=\"-1\" href=\"#\">".
+                         "<a class=\"click-folder\" tabindex=\"-1\" href=\"#\" name=\"$key\">".
                             "<img src='icon/folder-visiting.svg' alt='test' class='icon'>".
                             "<span class=\"text\">$key</span>".
                          "</a>".
@@ -66,70 +66,69 @@ function echoFiles($dir) {
 
 }
 
-function dirToArray($dir) {
+function tableDir($dir, $par){
 
-    $result = array();
+    echo "<div data-x='$par'>";
 
-    $cdir = scandir($dir);
-    foreach ($cdir as $key => $value)
-    {
-        if (!in_array($value,array(".","..")))
-        {
-            if (is_dir($dir . DIRECTORY_SEPARATOR . $value))
-            {
-                $result[$value] = dirToArray($dir . DIRECTORY_SEPARATOR . $value);
-            }
-            else
-            {
-                $result[] = $value;
-            }
-        }
-    }
-
-    return $result;
-}
-
-function tableDir($dir){
-    /*if ( !empty($_GET['page'])) $param = $_GET['page'];
-    else {
-        $param = './';
-    }
-
-    if ($param == $_GET['page']) {
-        echoFiles(dirlist($param, "files"));
-    tableDir(dirlist($param, "files"));
-    }*/
     foreach ($dir as $key => $value) {
-        if(is_array($value)){
+        if (is_array($value)) {
             echo "<div class='div-folder'><img src='icon/folder-visiting.svg' alt='test' class='icon'><span class=\"text\">$key</span></div>";
-            echo "<div class='none' data-x='$key'>";
-            echo echoDir2($value);
-            echo "</div>";
         }
-    }
 
+    }
     foreach ($dir as $key => $value) {
         if(!is_array($value)){
             echo "<div class='div-folder'><img src='icon/application-document.svg' alt='test' class='icon'><span class=\"text\">$value</span></div>";
         }
     }
-}
 
 
-function echoDir2($dir) {
+    echo "</div>";
+
     foreach ($dir as $key => $value) {
-        if(is_array($value)){
-            echo "<div class='div-folder'><img src='icon/folder-visiting.svg' alt='test' class='icon'><span class=\"text\">$key</span></div>";
-            echo "<div class='none' data-x='$key'>";
-            echo echoDir2($value);
-            echo "</div>";
+
+        if (is_array($value)) {
+            tableDir($value, $key);
         }
+
     }
 
+}
+
+/*function tableDir($dir, $par){
+
+    //echo "<div class='none' data-x='$par'>";
+
+    foreach ($dir as $key => $value) {
+        if (is_array($value)) {
+            echo "<div class='div-folder' data-x='$par'><img src='icon/folder-visiting.svg' alt='test' class='icon'><span class=\"text\">$key</span></div><script>$('.dropdown .click-folder').on(\"click\", function(e){
+        $(\".div-folder\").css(\"display\", \"none\");
+        $(\"[data-x='$par']\").css(\"display\", \"block\");
+        $(\"[data-x='$par']\").children().css(\"display\", \"block\");
+    });</script>";
+        }
+
+    }
     foreach ($dir as $key => $value) {
         if(!is_array($value)){
-            echo "<div class='div-folder'><img src='icon/application-document.svg' alt='test' class='icon'><span class=\"text\">$value</span></div>";
+            echo "<div class='div-folder' data-x='$par'><img src='icon/application-document.svg' alt='test' class='icon'><span class=\"text\">$value</span></div><script>$('.dropdown .click-folder').on(\"click\", function(e){
+        $(\" . div - folder\").css(\"display\", \"none\");
+        $(\"[data - x = '$par']\").css(\"display\", \"block\");
+        $(\"[data - x = '$par']\").children().css(\"display\", \"block\");
+    });</script>";
         }
     }
-}
+
+    //echo "</div>";
+
+    foreach ($dir as $key => $value) {
+
+        if (is_array($value)) {
+            tableDir($value, $key);
+        }
+
+    }
+
+}*/
+
 ?>

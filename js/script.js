@@ -17,10 +17,23 @@ $(document).ready(function(){
         $(".dropdown-block").prev("a").children("span").children("span").removeClass("caret").addClass("caret-right");
         $(".dropdown-none").prev("a").children("span").children("span").removeClass("caret-right").addClass("caret");
         $p = $(this).text();
-        $(".div-folder").css("display", "none");
-        $("[data-x='$p']").css("display", "block");
-        $("[data-x='$p']").children().css("display", "block");
-        //alert("[data-x=\'" + "$p"+"\']");
+        $(".test").html("" +
+            "<script>" +
+            "function test() {\n" +
+            "    $(\"[data-x]\").css(\"display\", \"none\");\n" +
+            "    $(\"[data-x=\'" + $p + "\']\").css(\"display\", \"block\");\n" +
+            "}" +
+            "test();" +
+            "</script>" +
+            "");
+        /*$(".div-folder").css("display", "none");
+        $("[data-x='filemanager']").css("display", "block");*/
     });
     }
 );
+function test($test) {
+    $(".div-folder").css("display", "none");
+    //$(".test").html("active-folder");
+    //$("[data-x='$test']").css("display", "block");
+}
+test();
