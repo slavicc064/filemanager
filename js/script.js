@@ -1,17 +1,9 @@
-/**
- * Created by user on 24.12.2017.
- */
-$(document).ready(function(){
-    $(".file-manager-window").click(function(){
-        $(".file-manager-window").css("background-color","red");
-    });
+$(document).ready(function() {
+    /*$("[data-x='filemanager']").css("display", "block");
 
-
-    $('.dropdown .click-folder').on("click", function(e){
+    $('.dropdown .click-folder').on("click", function(){
         $(this).next('ul').toggleClass("dropdown-none");
         $(this).next('ul').toggleClass("dropdown-block");
-        /*e.stopPropagation();
-        e.preventDefault();*/
         $(".click-folder").removeClass("active-folder");
         $(this).addClass("active-folder");
         $(".dropdown-block").prev("a").children("span").children("span").removeClass("caret").addClass("caret-right");
@@ -26,14 +18,40 @@ $(document).ready(function(){
             "test();" +
             "</script>" +
             "");
-        /*$(".div-folder").css("display", "none");
-        $("[data-x='filemanager']").css("display", "block");*/
     });
-    }
-);
-function test($test) {
-    $(".div-folder").css("display", "none");
-    //$(".test").html("active-folder");
-    //$("[data-x='$test']").css("display", "block");
-}
-test();
+    $('.div-folder').on("click", function () {
+        $p = $(this).text();
+        $(".test").html(
+            "<script>" +
+            "function test() {\n" +
+            "    $(\"[data-x]\").css(\"display\", \"none\");\n" +
+            "    $(\"[data-x=\'" + $p + "\']\").css(\"display\", \"block\");\n" +
+            "}" +
+            "test();" +
+            "</script>"
+        );
+    })*/
+
+
+});
+/*$( function() {
+    $( "#dialog" ).dialog();
+} );*/
+$( function() {
+    $( "#dialog" ).dialog({
+        /*autoOpen: true,
+        show: {
+            effect: "blind",
+            duration: 1000,
+        },
+        hide: {
+            effect: "explode",
+            duration: 1000,
+        }*/
+    }).show();
+    $('.ui-dialog-titlebar-close').html("<span class=\"close close2\"><img src=\"icon/delete.svg\" alt=\"Close\"></span>");
+    $('.contextmenu').css("display", "none");
+    $( ".opener" ).contextmenu(function() {
+        $('.contextmenu').css("display", "block");
+    });
+} );

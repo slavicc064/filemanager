@@ -45,6 +45,12 @@ a {
 .close img {
     width: 100%;
 }
+.close2 {
+    width: 12px;
+    margin-top: -1px;
+    margin-right: 1px;
+    cursor: pointer;
+}
 .title {
     text-align: center;
     margin-top: 4px;
@@ -72,7 +78,7 @@ a {
     overflow: scroll;
 }
 .fm-box-right {
-    width: 886px;
+    width: 73.83%;
     background-color: #ffffff;
     height: 437px;
     padding: 2px;
@@ -98,16 +104,20 @@ a {
     padding-left: 27px;
     position: relative;
 }
-.click-folder,
-.div-folder {
+.click-folder{
     display: block;
+}
+.click-folder,
+.tr-folder,
+.title-folder {
     padding: 5px;
     position: relative;
 }
 .click-folder {
     color: #555555;
 }
-.icon {
+.icon,
+.icon-r {
     width: 16px;
     height: 14px;
     float: left;
@@ -115,8 +125,21 @@ a {
 }
 .text {
     display: block;
+}
+.text,
+.name {
     margin-top: -1px;
     margin-left: 30px;
+}
+.name {
+    margin-left: 0;
+}
+.name {
+    width: 45%;
+}
+.icon-r {
+    margin-right: 5px;
+    margin-left: 5px;
 }
 .caret,
 .caret-right {
@@ -141,8 +164,21 @@ a {
 .caret-right {
     transform: rotate(90deg);
 }
-.div-folder:nth-child(odd) {
+.tr-folder:nth-child(even) {
     background-color: #edf3fe;
+}
+.tr-folder,
+.title-folder {
+    height: 30px;
+    position: relative;
+}
+.tr-folder a {
+    color: #000;
+    margin-top: -15px;
+    padding-top: 7px;
+    position: absolute;
+    width: 865px;
+    height: 23px;
 }
 .active-folder {
     background-color: #3875d7;
@@ -151,7 +187,37 @@ a {
     border-radius: 4px;
     color: white;
 }
-[data-x]{
-    display: none;
+.table-r {
+    width: 100%;
+    border-spacing: 0;
 }
+.title-folder {
+    background-color: #e8e8e8;
+    padding: 5px;
+}
+.title-folder span {
+    padding: 0px 5px;
+}
+.size,
+.kind {
+    width: 27%;
+    text-align: right;
+    padding-right: 10px;
+}
+.file-edit {
+    width: 100%;
+    height: 500px;
+    resize: none;
+    overflow: scroll;
+    white-space: pre;
+    word-wrap: break-word;
+}
+.save {
+    float: right;
+    margin-top: 10px;
+    cursor: pointer;
+}
+/*[data-x]{
+    display: none;
+}*/
 
