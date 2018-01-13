@@ -39,17 +39,18 @@ $(document).ready(function() {
 } );*/
 $( function() {
     $( "#dialog" ).dialog({
-        /*autoOpen: true,
+        autoOpen: true,
         show: {
-            effect: "blind",
+            effect: "explode",
             duration: 1000,
         },
         hide: {
             effect: "explode",
             duration: 1000,
-        }*/
-    }).show();
+        }
+    });
     $('.ui-dialog-titlebar-close').html("<span class=\"close close2\"><img src=\"icon/delete.svg\" alt=\"Close\"></span>");
+	$('.ui-dialog').css("width", "700px");
     $('.contextmenu').css("display", "none");
     $( ".opener" ).contextmenu(function() {
         $('.contextmenu').css("display", "block");

@@ -23,44 +23,44 @@
             <div class="fm-box-left">
                 <ul class="dropdown">
                     <li class="focus">
-                        <a href="index.php?test=./" class="click-folder" name="./" tabindex="-1" data-n="./"><img src="icon/user-home.svg" alt="Manager icon" class="icon"><span class="text">filemanager<span class="caret-right" data-caret='1'></span></span></a>
+                        <a href="#" class="click-folder test12" name="./" tabindex="-1" data-n="./"><img src="icon/user-home.svg" alt="Manager icon" class="icon"><span class="text">filemanager<span class="caret-right" data-caret='1'></span></span></a>
                         <ul class="dropdown-block"><?php /*echoDir(dirlist('./'), "./");*/ rscandir("./");?></ul>
                     </li>
                 </ul>
             </div>
-            <div class="fm-box-right">
-                <table class='table-r'>
-                    <tr class="title-folder">
-                        <td><span>Name</span></td>
-                        <td class="size"><span>Size</span></td>
-                        <td class="kind"><span>Kind</span></td>
-                    </tr>
-                <?php
-                if(isset($_GET['test'])) {
-                    if (!empty($_GET['test'])) $param = $_GET['test'];
-                    else {
-                        $param = './';
-                    }
-                    if ($param == $_GET['test']) {
-                        if(is_dir($param)){
-                            rscandir2("$param");
-                        }
-                        else {
-                            echo "<script>".
+			<div class="fm-box-right">
+			<table class='table-r'>
+				<tr class="title-folder">
+					<td><span>Name</span></td>
+					<td class="size"><span>Size</span></td>
+					<td class="kind"><span>Kind</span></td>
+				</tr>
+			<?php
+			if(isset($_GET['test'])) {
+				if (!empty($_GET['test'])) $param = $_GET['test'];
+				else {
+					$param = '../';
+				}
+				if ($param == $_GET['test']) {
+					if(is_dir($param)){
+						rscandir2("$param");
+					}
+					else {
+						echo "<script>".
 
-                                "</script>";
-                        }
+							"</script>";
+					}
 
-                    } else {
-                        rscandir2("./");
-                    }
-                }
-                else {
-                    rscandir2("./");
-                }
-                ?>
-                </table>
-            </div>
+				} else {
+					rscandir2("./");
+				}
+			}
+			else {
+				rscandir2("./");
+			}
+			?>
+			</table>
+			</div>
         </div>
         <div class="fm-bottom">
 
@@ -107,7 +107,16 @@
         }
 
     ?>
+    <div id="div1"></div>
+    <script>
+        $(".test12").click(function(){
+            $("#div1").load("index.php");
+        });
+
+    </script>
 </body>
 </html>
+
+
 
 
