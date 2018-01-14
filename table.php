@@ -1,3 +1,4 @@
+<?php include "mod.php"?>
 <table class='table-r'>
     <tr class="title-folder">
         <td><span>Name</span></td>
@@ -14,11 +15,6 @@
             if(is_dir($param)){
                 rscandir2("$param");
             }
-            else {
-                echo "<script>".
-
-                    "</script>";
-            }
 
         } else {
             rscandir2("./");
@@ -29,3 +25,4 @@
     }
     ?>
 </table>
+<script src="js/table.js"></script>

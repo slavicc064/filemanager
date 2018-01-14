@@ -1,18 +1,5 @@
 <?php //session_start();?>
-<?php include "mod.php"?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title> File Manager</title>
-    <!--<link rel="stylesheet" href="css/jquery-ui.min.css">-->
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="css/style.css"/>
-    <script src="js/jquery-2.2.4.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/script.js"></script>
-</head>
+<?php include "header.php"?>
 <body>
     <div class="fm-window">
         <div class="fm-top">
@@ -23,12 +10,12 @@
             <div class="fm-box-left">
                 <ul class="dropdown">
                     <li class="focus">
-                        <a href="#" class="click-folder test12" name="./" tabindex="-1" data-n="./"><img src="icon/user-home.svg" alt="Manager icon" class="icon"><span class="text">filemanager<span class="caret-right" data-caret='1'></span></span></a>
-                        <ul class="dropdown-block"><?php /*echoDir(dirlist('./'), "./");*/ rscandir("./");?></ul>
+                        <div class="click-folder active-folder" tabindex="-1" data-n="./"><img src="icon/user-home.svg" alt="Manager icon" class="icon"><span class="text">filemanager<span class="caret" data-caret='1'></span></span></div>
+                        <ul class="dropdown-none"><?php echoDir(dirlist('./'), "./");?></ul>
                     </li>
                 </ul>
             </div>
-			<div class="fm-box-right">
+			<!--<div class="fm-box-right">
 			<table class='table-r'>
 				<tr class="title-folder">
 					<td><span>Name</span></td>
@@ -36,7 +23,7 @@
 					<td class="kind"><span>Kind</span></td>
 				</tr>
 			<?php
-			if(isset($_GET['test'])) {
+/*			if(isset($_GET['test'])) {
 				if (!empty($_GET['test'])) $param = $_GET['test'];
 				else {
 					$param = '../';
@@ -58,16 +45,19 @@
 			else {
 				rscandir2("./");
 			}
-			?>
+			*/?>
 			</table>
-			</div>
+			</div>-->
+            <div class="fm-box-right" id="div1"></div>
         </div>
         <div class="fm-bottom">
 
         </div>
     </div>
 
+<div id="dialog" title="Text Editor: test">
 
+</div>
 <div class="test">
     <?php
     if(isset($_GET['file'])) {
@@ -99,21 +89,22 @@
 </div>
     <?php
 
-        if(isset($_GET['test'])) {
+        /*if(isset($_GET['test'])) {
             getpar($_GET['test']);
         }
         else {
             getpar('./');
-        }
+        }*/
 
     ?>
-    <div id="div1"></div>
-    <script>
-        $(".test12").click(function(){
-            $("#div1").load("index.php");
+    <!--<script>
+        $(".click-folder").click(function(){
+            $testpx = $(this).attr("data-n");
+            alert($testpx);
+            $("#div1").load("table.php?test="+$testpx);
         });
 
-    </script>
+    </script>-->
 </body>
 </html>
 

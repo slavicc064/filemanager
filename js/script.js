@@ -1,43 +1,22 @@
+"use strict";
 $(document).ready(function() {
-    /*$("[data-x='filemanager']").css("display", "block");
+    $("#div1").load("table.php?test=./");
 
     $('.dropdown .click-folder').on("click", function(){
         $(this).next('ul').toggleClass("dropdown-none");
         $(this).next('ul').toggleClass("dropdown-block");
         $(".click-folder").removeClass("active-folder");
         $(this).addClass("active-folder");
-        $(".dropdown-block").prev("a").children("span").children("span").removeClass("caret").addClass("caret-right");
-        $(".dropdown-none").prev("a").children("span").children("span").removeClass("caret-right").addClass("caret");
-        $p = $(this).text();
-        $(".test").html("" +
-            "<script>" +
-            "function test() {\n" +
-            "    $(\"[data-x]\").css(\"display\", \"none\");\n" +
-            "    $(\"[data-x=\'" + $p + "\']\").css(\"display\", \"block\");\n" +
-            "}" +
-            "test();" +
-            "</script>" +
-            "");
+        $(this).children("span").children("span").toggleClass("caret").toggleClass("caret-right");
+        var dataN = $(this).attr("data-n");
+        $("#div1").load("table.php?test="+dataN);
     });
-    $('.div-folder').on("click", function () {
-        $p = $(this).text();
-        $(".test").html(
-            "<script>" +
-            "function test() {\n" +
-            "    $(\"[data-x]\").css(\"display\", \"none\");\n" +
-            "    $(\"[data-x=\'" + $p + "\']\").css(\"display\", \"block\");\n" +
-            "}" +
-            "test();" +
-            "</script>"
-        );
-    })*/
-
 
 });
 /*$( function() {
     $( "#dialog" ).dialog();
 } );*/
-$( function() {
+/*$( function() {
     $( "#dialog" ).dialog({
         autoOpen: true,
         show: {
@@ -55,4 +34,4 @@ $( function() {
     $( ".opener" ).contextmenu(function() {
         $('.contextmenu').css("display", "block");
     });
-} );
+} );*/

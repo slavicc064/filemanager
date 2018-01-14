@@ -1,23 +1,54 @@
 <?php
 
-function rscandir($dir='', $result=array(), $par='./') {
+function dirlist($dir, $param = "dirs") {
 
-    $arrDir = scandir($dir);
-    foreach($arrDir as $key=> $value) {
+    $result = array();
 
+    $cdir = scandir($dir);
+    foreach ($cdir as $key => $value) {
         if (!in_array($value,array(".",".."))) {
-            if (is_dir($dir . $value)) {
-                echo "<li class=\"folder\">" .
-                    "<a class=\"click-folder\" tabindex=\"-1\" href=\"index.php?test=$dir$value/\" data-n=\"$dir$value/\"'>" .
-                    "<img src='icon/folder-visiting.svg' alt='test' class='icon'>" .
-                    "<span class=\"text\">$value<span class=\"\" data-caret='1'></span></span>" .
-                    "</a><ul class=\"dropdown-block\">";
-                echo rscandir($dir . $value . '/', $result) . "</ul></li>";
+            if ($param == "files") {
+                if (is_dir($dir . DIRECTORY_SEPARATOR . $value)) {
+                    $result[$value] = dirlist($dir . DIRECTORY_SEPARATOR . $value, $param = "files");
+                } else {
+                    $result[] = $value;
+                }
+            }
+            elseif ($param == "dirs") {
+                if (is_dir($dir . DIRECTORY_SEPARATOR . $value)) {
+                    $result[$value] = dirlist($dir . DIRECTORY_SEPARATOR . $value, $param = "dirs");
+                }
+            }
+        }
+    }
+
+    return $result;
+
+}
+
+function echoDir($dir, $test = "./") {
+    foreach ($dir as $key => $value) {
+        if(is_array($value)){
+            $x = count($value);
+            if($x > 0) {
+                echo "<li class=\"folder\">".
+                    "<div class=\"click-folder\" tabindex=\"-1\" data-n=\"$test$key/\">".
+                    "<img src='icon/folder-visiting.svg' alt='test' class='icon'>".
+                    "<span class=\"text\">$key<span class=\"caret\" data-caret='1'></span></span>".
+                    "</div><ul class=\"dropdown-none\">";
+                echo echoDir($value, "$test$key/")."</ul></li>";
+            }
+            else {
+                echo "<li class=\"folder\">".
+                    "<div class=\"click-folder\" tabindex=\"-1\" data-n=\"$test$key/\">".
+                    "<img src='icon/folder-visiting.svg' alt='test' class='icon'>".
+                    "<span class=\"text\">$key</span>".
+                    "</div>".
+                    "</li>";
             }
         }
     }
 }
-
 
 function mime_test($filename) {
 
@@ -80,7 +111,6 @@ function mime_test($filename) {
         }
     }
 
-
 function rscandir2($dir='') {
 
     $arrDir = scandir($dir);
@@ -90,12 +120,12 @@ function rscandir2($dir='') {
         if (!in_array($value,array(".",".."))) {
             if (is_dir($dir . $value)) {
                 $kind = 'folder';
-                echo "<tr class='tr-folder'>".
+                echo "<tr class='tr-folder' data-dir='$dir$value/'>".
                         "<td class=\"name\">".
-                            "<a href='index.php?test=$dir$value/' class='get-link'>".
+                            "<div class='get-link'>".
                                 "<img src='icon/folder-visiting.svg' alt='test' class='icon icon-r'>".
                                 "<span>". $value. "</span>".
-                            "</a>".
+                            "</div>".
                         "</td>".
                         "<td class='size'>".
                             '-' .
@@ -135,12 +165,12 @@ function rscandir2($dir='') {
                 else {
                     $img = 'icon/application-document.svg';
                 }
-                echo "<tr class='tr-folder'>".
+                echo "<tr class='tr-folder' data-file='$dir$value'>".
                         "<td class=\"name\">".
-                            "<a href='index.php?file=$dir$value' data-modal='$dir$value' class='opener'>".
+                            "<div data-modal='$dir$value' class='opener'>".
                                 "<img src='$img' alt='test' class='icon icon-r'>".
                                 "<span>". $value. "</span>".
-                            "</a>".
+                            "</div>".
                         "</td>".
                         "<td class='size'>".
                             $size .
@@ -155,18 +185,5 @@ function rscandir2($dir='') {
     }
 
 }
-function getpar($get) {
-    if ( !empty($get)) $param = $get;
-    else {
-        $param = './';
-    }
-    if ($param == $get) {
-        echo "<script>".
-            "$(document).ready(function(){\n".
-                "\t$(\"[data-n]\").removeClass(\"active-folder\");\n".
-                "\t$(\"[data-n = '$get']\").addClass(\"active-folder\");\n".
-                "});".
-            "</script>";
-    }}
 
 ?>
